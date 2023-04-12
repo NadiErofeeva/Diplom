@@ -847,9 +847,11 @@ hr.white {
 .top-slider .slick-dots {
 	position: absolute;
 	bottom: 25px;
+	z-index: 20;
 }
 .top-slider .slick-dots li {
 	border-color: #fff !important;
+	cursor: pointer;
 }
 .top-slider .slick-dots li.slick-active {
 	background-color: #fff !important;
@@ -862,6 +864,10 @@ hr.white {
 	overflow: hidden;
 	height: 450px;
 	position: relative;
+	display: none;
+}
+.top-slider .item.active {
+	display: block;
 }
 .top-slider .item:before {
 	content: "";
@@ -907,6 +913,7 @@ video#video_background {
 @media only screen and (min-width: 768px) {
 	.top-slider .item {
 		height: 400px;
+
 	}
 	.top-slider {
 		height: 400px;
@@ -939,7 +946,6 @@ video#video_background {
 	}
 	.top-slider .table {
 		opacity: 0;
-		visibility: hidden;
 		-webkit-transform: scale(1.5);
 		-ms-transform: scale(1.5);
 		-o-transform: scale(1.5);
@@ -948,13 +954,12 @@ video#video_background {
 		-o-transition: 0.5s;
 		transition: 0.5s;
 	}
-	.top-slider .table.active {
+	.top-slider .item.active .table {
 		webkit-transform: scale(1);
 		-ms-transform: scale(1);
 		-o-transform: scale(1);
 		transform: scale(1);
 		opacity: 1;
-		visibility: visible;
 	}
 }
 
