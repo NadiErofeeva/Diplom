@@ -3,8 +3,14 @@ const scroll = () => {
     menuItem.forEach((e) => {
         e.addEventListener('click', (event) => {
             event.preventDefault();
-            document.querySelector(e.getAttribute('href'))
-                .scrollIntoView({behavior: "smooth", block: "center", inline: "start"});
+            const fixedHeaderHeight = 100;
+            const top = document.querySelector('' + e.getAttribute('href'))
+                .offsetTop - fixedHeaderHeight;
+            window.scrollTo({
+                top,
+                left: 0,
+                behavior: "smooth",
+            })
         })
     })
 
